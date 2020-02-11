@@ -5,7 +5,6 @@ project (SymuVia VERSION 1.0.0)
 
 # Set path for libraries 
 set(LIB_DIRECTORIES "/usr/local/opt/buildsymuvia/lib" CACHE PATH "Library folder Boost GDAL Rapidjson")
-set(LIB_OBDC "/usr/local/lib/libodbc.dylib" CACHE PATH "OBDC library full path" )
 set(LIB_XQILLA "/usr/local/lib/libxqilla.dylib" CACHE PATH "OBDC library full path" )
 
 # Adding headers
@@ -18,6 +17,10 @@ include_directories(${LIBPYTHON_INCLUDE_DIRECTORY})
 # Special library Xqilla (Only for mac via brew)
 include_directories(${XQILLA_INCLUDE_DIRECTORY})
 
+# Dynamic linking 
+# https://stackoverflow.com/questions/26807329/no-rule-to-make-target-error-in-cmake-when-linking-to-shared-library
+link_directories(${LIB_DIRECTORIES}) 
+link_directories(${LIB_XQILLA}) 
 
 # Define libraries to link
 SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)

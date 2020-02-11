@@ -64,6 +64,7 @@ list(REMOVE_ITEM SymuVia_src ${CMAKE_CURRENT_SOURCE_DIR}/src/cryptage/tdesmain.h
 list(REMOVE_ITEM SymuVia_src ${CMAKE_CURRENT_SOURCE_DIR}/src/cryptage/Cryptage3DES.h)
 list(REMOVE_ITEM SymuVia_src ${CMAKE_CURRENT_SOURCE_DIR}/src/cryptage/Cryptage3DES.cpp)
 list(REMOVE_ITEM SymuVia_src ${CMAKE_CURRENT_SOURCE_DIR}/src/tests/Parallelisation/main.cpp)
+list(REMOVE_ITEM SymuVia_src ${CMAKE_CURRENT_SOURCE_DIR}/src/usage/SymuViaTripNodeDebug.cpp)
 
 if(NOT USE_SYMUCOM)	
     list(REMOVE_ITEM SymuVia_src ${CMAKE_CURRENT_SOURCE_DIR}/src/ITS/Applications/C_ITSApplication.cpp)
