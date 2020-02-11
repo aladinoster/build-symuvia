@@ -132,11 +132,29 @@ endif(NOT USE_SYMUCOM)
 add_library(SymuVia SHARED ${SymuVia_src})
 
 # Link Library dependencies 
+# GDAL
 target_link_libraries( SymuVia ${GDAL_LIB_NAME})
+# SymuCore
 target_link_libraries( SymuVia SymuCore)
-target_link_libraries( SymuVia 
-    ${LIB_DIRECTORIES}/${OBDC_RELEASE_LIB_NAME}
-    ${LIB_DIRECTORIES}/${BOOST_LOCALE_RELEASE_LIB_NAME})
+# Boost
+target_link_libraries( SymuVia ${LIB_DIRECTORIES}/${BOOST_SERIALIZATION_RELEASE_LIB_NAME}
+    ${LIB_DIRECTORIES}/${BOOST_WSERIALIZATION_RELEASE_LIB_NAME}
+    ${LIB_DIRECTORIES}/${BOOST_PYTHON_RELEASE_LIB_NAME}
+    ${LIB_DIRECTORIES}/${BOOST_LOCALE_RELEASE_LIB_NAME}
+    ${LIB_DIRECTORIES}/${BOOST_DATE_TIME_RELEASE_LIB_NAME}
+    ${LIB_DIRECTORIES}/${BOOST_LOG_RELEASE_LIB_NAME}
+    ${LIB_DIRECTORIES}/${BOOST_SYSTEM_RELEASE_LIB_NAME}
+    ${LIB_DIRECTORIES}/${BOOST_FILESYSTEM_RELEASE_LIB_NAME}
+    ${LIB_DIRECTORIES}/${BOOST_THREAD_RELEASE_LIB_NAME}
+    ${LIB_DIRECTORIES}/${BOOST_CHRONO_RELEASE_LIB_NAME})
+# Xerces-c
+target_link_libraries( SymuVia ${LIB_DIRECTORIES}/${XERCES_RELEASE_LIB_NAME})
+# XQilla
+target_link_libraries( SymuVia ${XQILLA_LIB_PATH})
+# ODBC
+target_link_libraries( SymuVia ${LIB_DIRECTORIES}/${OBDC_RELEASE_LIB_NAME})
+# Python
+target_link_libraries( SymuVia ${LIB_DIRECTORIES}/${PYTHON_RELEASE_LIB_NAME})
 
 
 # Visible                               

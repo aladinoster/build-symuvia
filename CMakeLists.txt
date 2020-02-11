@@ -4,18 +4,20 @@ cmake_minimum_required (VERSION 3.12)
 project (SymuVia VERSION 1.0.0)
 
 # Set path for libraries 
-set(LIB_DIRECTORIES "/usr/local/opt/buildsymuvia/lib" CACHE PATH "Boost library folder")
-set(LIB_OBDC "/usr/local/lib/libodbc.dylib" CACHE PATH "OBDC library folder" )
+set(LIB_DIRECTORIES "/usr/local/opt/buildsymuvia/lib" CACHE PATH "Library folder Boost GDAL Rapidjson")
+set(LIB_OBDC "/usr/local/lib/libodbc.dylib" CACHE PATH "OBDC library full path" )
+set(LIB_XQILLA "/usr/local/lib/libxqilla.dylib" CACHE PATH "OBDC library full path" )
 
 # Adding headers
 set(LIB_INCLUDE_DIRECTORY "/usr/local/opt/buildsymuvia/include" CACHE PATH "Boost headers folder")
 set(LIBPYTHON_INCLUDE_DIRECTORY "/usr/local/opt/buildsymuvia/include/python3.6m" CACHE PATH "Python 3.6 headers folder")
+set(XQILLA_INCLUDE_DIRECTORY "/usr/local/include" CACHE PATH "XQilla include folder")
+
 include_directories(${LIB_INCLUDE_DIRECTORY}) 
 include_directories(${LIBPYTHON_INCLUDE_DIRECTORY}) 
-
-# Special library Xqilla (Only for mac/unix)
-set(XQILLA_INCLUDE_DIRECTORY "/usr/local/include" CACHE PATH "XQilla include folder")
+# Special library Xqilla (Only for mac via brew)
 include_directories(${XQILLA_INCLUDE_DIRECTORY})
+
 
 # Define libraries to link
 SET(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
@@ -47,8 +49,10 @@ if(APPLE)
     set(BOOST_FILESYSTEM_RELEASE_LIB_NAME "libboost_filesystem.dylib" CACHE STRING "Boost filesystem release lib name")
     set(BOOST_THREAD_RELEASE_LIB_NAME "libboost_thread.dylib" CACHE STRING "Boost thread release lib name")
     set(BOOST_CHRONO_RELEASE_LIB_NAME "libboost_chrono.dylib" CACHE STRING "Boost chrono release lib name")    
-    set(GDAL_LIB_NAME "libgdal.dylib" CACHE FILE "Full path of the GDAL x64 lib")
-    set(OBDC_RELEASE_LIB_NAME "libobdc.dylib" CACHE FILE "OBDC Library manager" )
+    set(GDAL_LIB_NAME "libgdal.dylib" CACHE STRING "Full path of the GDAL x64 lib")
+    set(OBDC_RELEASE_LIB_NAME "libobdc.dylib" CACHE STRING "OBDC Library name" )
+    set(PYTHON_RELEASE_LIB_NAME "libpython3.6m.dylib" CACHE STRING "Python Library name" )  
+    set(XERCES_RELEASE_LIB_NAME "libxerces-c.dylib" CACHE STRING "Xerces Library name")  
 else()
     set(BOOST_DATE_TIME_RELEASE_LIB_NAME "libboost_date_time.so" CACHE STRING "Boost date_time release library name")
     set(BOOST_LOCALE_RELEASE_LIB_NAME "libboost_locale.so" CACHE STRING "Boost date_time debug library name")
@@ -61,6 +65,9 @@ else()
     set(BOOST_THREAD_RELEASE_LIB_NAME "libboost_thread.so" CACHE STRING "Boost thread release lib name")
     set(BOOST_CHRONO_RELEASE_LIB_NAME "libboost_chrono.so" CACHE STRING "Boost chrono release lib name")    
     set(GDAL_LIB_NAME "libgdal.dylib" CACHE FILE "Full path of the GDAL x64 lib")
+    set(OBDC_RELEASE_LIB_NAME "libobdc.so" CACHE STRING "OBDC Library name" )
+    set(PYTHON_RELEASE_LIB_NAME "libpython3.6m.so" CACHE STRING "Python Library name")  
+    set(XERCES_RELEASE_LIB_NAME "libxerces-c.so" CACHE STRING "Xerces Library name")      
 endif()
 
 add_subdirectory(SymuCore)
