@@ -60,3 +60,5 @@ Legacy
 # Source (waiting for licensing)
 SymuCore/src
 SymuVia/src
+
+.vscode
