@@ -155,7 +155,7 @@ target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${XQILLA_RELEASE_LIB_NAME}
 # ODBC
 target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${OBDC_RELEASE_LIB_NAME})
 # Python
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${PYTHON_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${LIB_LOCAL_PYTHON}/${PYTHON_RELEASE_LIB_NAME})
 
 
 # Visible                               
