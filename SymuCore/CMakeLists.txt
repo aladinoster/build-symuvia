@@ -100,8 +100,8 @@ add_library(SymuCore SHARED ${SymuCore_src})
 
 # Link dependencies
 target_link_libraries(SymuCore 
-    ${LIB_LOCAL_DIRECTORY}/${BOOST_DATE_TIME_RELEASE_LIB_NAME}
-    ${LIB_LOCAL_DIRECTORY}/${BOOST_LOCALE_RELEASE_LIB_NAME})
+    ${BOOST_LIB_DIRECTORY}/${BOOST_DATE_TIME_RELEASE_LIB_NAME}
+    ${BOOST_LIB_DIRECTORY}/${BOOST_LOCALE_RELEASE_LIB_NAME})
 
 # Visible                               
 target_include_directories(SymuCore PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src")

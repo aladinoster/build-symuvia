@@ -134,28 +134,28 @@ add_library(SymuVia SHARED ${SymuVia_src})
 
 # Link Library dependencies 
 # GDAL
-target_link_libraries( SymuVia ${GDAL_LIB_NAME})
+target_link_libraries( SymuVia ${GDAL_LIB_DIRECTORY}/${GDAL_LIB_NAME})
 # SymuCore
 target_link_libraries( SymuVia SymuCore)
 # Boost
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${BOOST_SERIALIZATION_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${BOOST_WSERIALIZATION_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${BOOST_PYTHON_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${BOOST_LOCALE_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${BOOST_DATE_TIME_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${BOOST_LOG_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${BOOST_SYSTEM_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${BOOST_FILESYSTEM_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${BOOST_THREAD_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${BOOST_CHRONO_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_SERIALIZATION_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_WSERIALIZATION_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_PYTHON_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_LOCALE_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_DATE_TIME_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_LOG_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_SYSTEM_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_FILESYSTEM_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_THREAD_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_CHRONO_RELEASE_LIB_NAME})
 # Xerces-c
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${XERCES_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${XERCESC_LIB_DIRECTORY}/${XERCES_RELEASE_LIB_NAME})
 # XQilla
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${XQILLA_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${XQILLA_LIB_DIRECTORY}/${XQILLA_RELEASE_LIB_NAME})
 # ODBC
-target_link_libraries( SymuVia ${LIB_LOCAL_DIRECTORY}/${OBDC_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${ODBC_LIB_DIRECTORY}/${OBDC_RELEASE_LIB_NAME})
 # Python
-target_link_libraries( SymuVia ${LIB_LOCAL_PYTHON}/${PYTHON_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${PYTHON_LIB_DIRECTORY}/${PYTHON_RELEASE_LIB_NAME})
 
 
 # Visible                               
