@@ -158,7 +158,7 @@ target_link_libraries( SymuVia ${XQILLA_LIB_DIRECTORY}/${XQILLA_RELEASE_LIB_NAME
 target_link_libraries( SymuVia ${XercesC_LIBRARIES})
 
 # Rapidjson
-target_link_libraries( SymuVia ${})
+target_link_libraries( SymuVia ${RAPIDJSON_LIBRARY}/${RAPIDJSON_LIBRARY})
 
 # ODBC
 target_link_libraries( SymuVia ${ODBC_LIBRARY})
