@@ -3,6 +3,22 @@ cmake_minimum_required (VERSION 3.10)
 
 project (SymuVia VERSION 1.0.0)
 
+# Package installations 
+# 
+#       brew install boost boost-python gdal xqilla rapidjson python
+#
+# Linux: 
+# 
+#       apt-get update && apt-get install -y \
+#       cmake \
+#       xqilla \
+#       libboost-all-dev \
+#       aptitude \
+#       gdal-bin \
+#       rapidjson-dev  &&\
+#       aptitude search -y \
+#       boost 
+#
 # Boost search
 #
 # If you have installed via: brew install boost-python 
