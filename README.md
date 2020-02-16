@@ -11,3 +11,25 @@ A simple project structure to Build `SymuVia`.
 4. Go to the coresonding directory `cd build` 
 5. Generate config pointing to the place where the file `CMakeLists.txt` is placed `cmake ..`
 6. Build your target via `cmake -build .`
+
+## Dependencies 
+
+On Linux `install` 
+
+```
+      apt-get update && apt-get install -y \
+      cmake \
+      xqilla \
+      libboost-all-dev \
+      aptitude \
+      gdal-bin \
+      rapidjson-dev  &&\
+      aptitude search -y \
+      boost 
+```
+
+On OS X 
+
+```
+      brew install boost boost-python gdal xqilla rapidjson python
+```
