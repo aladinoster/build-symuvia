@@ -134,29 +134,37 @@ add_library(SymuVia SHARED ${SymuVia_src})
 
 # Link Library dependencies 
 # GDAL
-target_link_libraries( SymuVia ${GDAL_LIB_DIRECTORY}/${GDAL_LIB_NAME})
+target_link_libraries( SymuVia ${GDAL_LIBRARY})
+
 # SymuCore
 target_link_libraries( SymuVia SymuCore)
+
 # Boost
-target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_SERIALIZATION_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_WSERIALIZATION_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_PYTHON_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_LOCALE_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_DATE_TIME_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_LOG_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_SYSTEM_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_FILESYSTEM_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_THREAD_RELEASE_LIB_NAME})
-target_link_libraries( SymuVia ${BOOST_LIB_DIRECTORY}/${BOOST_CHRONO_RELEASE_LIB_NAME})
-# Xerces-c
-target_link_libraries( SymuVia ${XERCESC_LIB_DIRECTORY}/${XERCES_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${Boost_SERIALIZATION_LIBRARY}
+                               ${Boost_WSERIALIZATION_LIBRARY}
+                               ${Boost_PYTHON27_LIBRARY}
+                               ${Boost_LOCALE_LIBRARY}
+                               ${Boost_DATE_TIME_LIBRARY}
+                               ${Boost_CHRONO_LIBRARY}
+                               ${Boost_LOG_LIBRARY}
+                               ${Boost_FILESYSTEM_LIBRARY}
+                               ${Boost_THREAD_LIBRARY}
+                               ${Boost_SYSTEM_LIBRARY})
+
 # XQilla
 target_link_libraries( SymuVia ${XQILLA_LIB_DIRECTORY}/${XQILLA_RELEASE_LIB_NAME})
-# ODBC
-target_link_libraries( SymuVia ${ODBC_LIB_DIRECTORY}/${OBDC_RELEASE_LIB_NAME})
-# Python
-target_link_libraries( SymuVia ${PYTHON_LIB_DIRECTORY}/${PYTHON_RELEASE_LIB_NAME})
 
+# Xerces-c
+target_link_libraries( SymuVia ${XercesC_LIBRARIES})
+
+# Rapidjson
+target_link_libraries( SymuVia ${})
+
+# ODBC
+target_link_libraries( SymuVia ${ODBC_LIBRARY})
+
+# Python
+target_link_libraries( SymuVia ${Python_LIBRARIES})
 
 # Visible                               
 target_include_directories(SymuVia PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src")
