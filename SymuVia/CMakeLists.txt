@@ -24,6 +24,7 @@ configure_file(
 add_definitions(-DTRAFFICSTATE_EXPORTS)
 add_definitions(-DSYMUVIA_EXPORTS)
 add_definitions(-DUSE_SYMUCORE)
+add_definitions(-DBOOST_LOG_DYN_LINK)
 
 if(USE_SYMUCOM)
     add_definitions(-DUSE_SYMUCOM)
@@ -140,25 +141,27 @@ target_link_libraries( SymuVia ${GDAL_LIBRARY})
 target_link_libraries( SymuVia SymuCore)
 
 # Boost
-target_link_libraries( SymuVia ${Boost_SERIALIZATION_LIBRARY}
-                               ${Boost_WSERIALIZATION_LIBRARY}
-                               ${Boost_PYTHON27_LIBRARY}
-                               ${Boost_LOCALE_LIBRARY}
-                               ${Boost_DATE_TIME_LIBRARY}
-                               ${Boost_CHRONO_LIBRARY}
-                               ${Boost_LOG_LIBRARY}
-                               ${Boost_FILESYSTEM_LIBRARY}
-                               ${Boost_THREAD_LIBRARY}
-                               ${Boost_SYSTEM_LIBRARY})
+# target_link_libraries( SymuVia ${Boost_SERIALIZATION_LIBRARY})
+# target_link_libraries( SymuVia ${Boost_WSERIALIZATION_LIBRARY}) 
+# target_link_libraries( SymuVia ${Boost_PYTHON27_LIBRARY})
+# target_link_libraries( SymuVia ${Boost_LOCALE_LIBRARY})
+# target_link_libraries( SymuVia ${Boost_DATE_TIME_LIBRARY})
+# target_link_libraries( SymuVia ${Boost_LOG_LIBRARY})
+# target_link_libraries( SymuVia ${Boost_SYSTEM_LIBRARY})
+# target_link_libraries( SymuVia ${Boost_FILESYSTEM_LIBRARY})
+# target_link_libraries( SymuVia ${Boost_THREAD_LIBRARY})
+# target_link_libraries( SymuVia ${Boost_CHRONO_LIBRARY})
+target_link_libraries( SymuVia ${Boost_LIBRARIES})
+
 
 # XQilla
-target_link_libraries( SymuVia ${XQILLA_LIB_DIRECTORY}/${XQILLA_RELEASE_LIB_NAME})
+target_link_libraries( SymuVia ${XQILLA_LIB_DIRECTORY})
 
 # Xerces-c
 target_link_libraries( SymuVia ${XercesC_LIBRARIES})
 
 # Rapidjson
-target_link_libraries( SymuVia ${RAPIDJSON_LIBRARY}/${RAPIDJSON_LIBRARY})
+# target_link_libraries( SymuVia ${RAPIDJSON_LIBRARY}/${RAPIDJSON_LIBRARY})
 
 # ODBC
 target_link_libraries( SymuVia ${ODBC_LIBRARY})

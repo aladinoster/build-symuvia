@@ -38,7 +38,11 @@ project (SymuVia VERSION 1.0.0)
 #
 #  cmake ..
 
-find_package(Boost COMPONENTS chrono date_time locale log thread filesystem serialization wserialization system python27 REQUIRED)
+set(Boost_USE_STATIC_LIBS OFF) 
+set(Boost_USE_MULTITHREADED ON)  
+set(Boost_USE_STATIC_RUNTIME OFF) 
+
+find_package(Boost COMPONENTS chrono date_time locale log thread serialization wserialization system python27 REQUIRED)
 
     if(Boost_FOUND)
         message(STATUS "Library Boost is available")
@@ -110,20 +114,11 @@ find_package(Python COMPONENTS Interpreter Development REQUIRED)
 
     # Libraries 
     if(APPLE)
-        set(XQILLA_LIBRARY "libxqilla.dylib" CACHE STRING "Xqilla Library name")
-        set(RAPIDJSON_LIBRARY "librapidjson.dylib" CACHE STRING "Rapidjson Library name")         
+        set(XQILLA_LIB_DIRECTORY "/usr/local/Cellar/xqilla/2.3.4/lib/libxqilla.dylib" CACHE PATH "Xqilla library folder")
+        # set(RAPIDJSON_LIBRARY "/usr/local/lib/" CACHE PATH "Rapidjson library folder")
     else()
-        set(XQILLA_LIBRARY "libxqilla.so.6" CACHE STRING "Xqilla Library name") 
-        set(RAPIDJSON_LIBRARY "librapidjson.so" CACHE STRING "Rapidjson Library name")        
-    endif()
-
-
-    if(APPLE)
-        set(XQILLA_LIB_DIRECTORY "/usr/local/lib/" CACHE PATH "Xqilla library folder")
-        set(RAPIDJSON_LIBRARY "/usr/local/lib/" CACHE PATH "Rapidjson library folder")
-    else()
-        set(XQILLA_LIB_DIRECTORY "/usr/lib/x86_64-linux-gnu/" CACHE PATH "Xqilla library folder")
-        set(RAPIDJSON_LIBRARY "/usr/lib/x86_64-linux-gnu/" CACHE PATH "Rapidjson library folder")
+        set(XQILLA_LIB_DIRECTORY "/usr/lib/x86_64-linux-gnu/libxqilla.so.6" CACHE PATH "Xqilla library folder")
+        # set(RAPIDJSON_LIBRARY "/usr/lib/x86_64-linux-gnu/" CACHE PATH "Rapidjson library folder")
     endif()
 
     # Dynamic linking 
@@ -133,21 +128,21 @@ find_package(Python COMPONENTS Interpreter Development REQUIRED)
 
     # Adding headers
     if(APPLE)
-        set(XQILLA_INCLUDE_DIR "/usr/local/include/xqilla" CACHE PATH "XQilla include folder")
-        set(RAPIDJSON_INCLUDE_DIR "/usr/local/include/rapidjson" CACHE PATH "Rapidjson include folder")
+        set(XQILLA_INCLUDE_DIR "/usr/local/Cellar/xqilla/2.3.4/include/xqilla/" CACHE PATH "XQilla include folder")
+        set(RAPIDJSON_INCLUDE_DIR "/usr/local/Cellar/rapidjson/1.1.0/include/rapidjson/" CACHE PATH "Rapidjson include folder")
     else()
         set(XQILLA_INCLUDE_DIR "/usr/include/" CACHE PATH "XQilla include folder")
         set(RAPIDJSON_INCLUDE_DIR "/usr/include/" CACHE PATH "Rapidjson include folder")
     endif()
 
     message(STATUS "Xqilla Manually added:")  
-    message(STATUS "Xqilla is available at:\n \t Xqilla library ${XQILLA_LIB_DIRECTORY}/${XQILLA_LIBRARY},\n \t Headers in: ${XQILLA_INCLUDE_DIR}")
+    message(STATUS "Xqilla is available at:\n \t Xqilla library: ${XQILLA_LIB_DIRECTORY},\n \t Headers in: ${XQILLA_INCLUDE_DIR}")
 
     include_directories(${XQILLA_INCLUDE_DIR})
     message(STATUS "\t Rapidjson headers included")  
 
     message(STATUS "Rapidjson Manually added:")  
-    message(STATUS "Rapidjson is available at:\n \t Xqilla library ${RAPIDJSON_LIBRARY}/${RAPIDJSON_LIBRARY},\n \t Headers in: ${RAPIDJSON_INCLUDE_DIR}")
+    message(STATUS "Rapidjson is available at:\n \t Headers in: ${RAPIDJSON_INCLUDE_DIR}")
 
     include_directories(${RAPIDJSON_INCLUDE_DIR})
     message(STATUS "\t Rapidjson headers included") 
