@@ -5,8 +5,16 @@ project (SymuVia VERSION 1.0.0)
 
 # Package installations 
 # 
-#       brew install boost boost-python gdal xqilla rapidjson python
+#       brew install boost boost-python3 gdal xqilla rapidjson python
 #
+# Caveat: 
+# 
+#       For python 2 
+#       
+#       brew install boost-python 
+# 
+#       Also when importing use find_package(Boost COMPONENTS python27 REQUIRED)
+# 
 # Linux: 
 # 
 #       apt-get update && apt-get install -y \
@@ -42,20 +50,20 @@ set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
 
-find_package(Boost COMPONENTS chrono date_time locale log thread serialization wserialization system python27 REQUIRED)
+find_package(Boost COMPONENTS chrono date_time locale log thread serialization wserialization filesystem system python REQUIRED)
 
     if(Boost_FOUND)
         message(STATUS "Library Boost is available")
-        message(STATUS "\t${Boost_CHRONO_LIBRARY}")
-        message(STATUS "\t${Boost_DATE_TIME_LIBRARY}")
-        message(STATUS "\t${Boost_LOCALE_LIBRARY}")
-        message(STATUS "\t${Boost_SERIALIZATION_LIBRARY}")
-        message(STATUS "\t${Boost_WSERIALIZATION_LIBRARY}")
-        message(STATUS "\t${Boost_PYTHON27_LIBRARY}")
-        message(STATUS "\t${Boost_LOG_LIBRARY}")
-        message(STATUS "\t${Boost_FILESYSTEM_LIBRARY}")
-        message(STATUS "\t${Boost_THREAD_LIBRARY}")
-        message(STATUS "\t${Boost_SYSTEM_LIBRARY}")
+        message(STATUS "\t ${Boost_CHRONO_LIBRARY}")
+        message(STATUS "\t ${Boost_DATE_TIME_LIBRARY}")
+        message(STATUS "\t ${Boost_LOCALE_LIBRARY}")
+        message(STATUS "\t ${Boost_SERIALIZATION_LIBRARY}")
+        message(STATUS "\t ${Boost_WSERIALIZATION_LIBRARY}")
+        message(STATUS "\t ${Boost_PYTHON_LIBRARY}")
+        message(STATUS "\t ${Boost_LOG_LIBRARY}")
+        message(STATUS "\t ${Boost_FILESYSTEM_LIBRARY}")
+        message(STATUS "\t ${Boost_THREAD_LIBRARY}")
+        message(STATUS "\t ${Boost_SYSTEM_LIBRARY}")
         include_directories(${Boost_INCLUDE_DIRS})
         message(STATUS "\t Boost headers included")
     else()
