@@ -31,6 +31,5 @@ On Linux `install`
 On OS X 
 
 ```
-      brew install boost boost-python3 gdal xqilla rapidjson 
-      python # (optional) in case anaconda is not installed 
+      brew install boost boost-python3 gdal xqilla rapidjson # python (optional) in case anaconda is not installed 
 ```
