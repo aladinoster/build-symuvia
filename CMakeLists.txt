@@ -71,16 +71,24 @@ find_package(Boost COMPONENTS chrono date_time locale log thread serialization w
     endif()
 
 # GDAL search
-find_package(GDAL REQUIRED)
+# find_package(GDAL REQUIRED)
 
-    if(GDAL_FOUND)  
-        message(STATUS "Library GDAL is available") 
-        message(STATUS "\t GDAL library: ${GDAL_LIBRARY},\n \t Headers in: ${GDAL_INCLUDE_DIR}")
-        include_directories(${GDAL_INCLUDE_DIR})
-        message(STATUS "\t GDAL headers included")
-    else()
-        message(STATUS "\t GDAL library is missing") 
-    endif()
+#     if(GDAL_FOUND)  
+#         message(STATUS "Library GDAL is available") 
+#         message(STATUS "\t GDAL library: ${GDAL_LIBRARY},\n \t Headers in: ${GDAL_INCLUDE_DIR}")
+#         include_directories(${GDAL_INCLUDE_DIR})
+#         message(STATUS "\t GDAL headers included")
+#     else()
+#         message(STATUS "\t GDAL library is missing") 
+#     endif()
+
+    # GDAL Manual set
+    message(STATUS "GDAL Manually added") 
+    set(GDAL_LIBRARY "/usr/local/Cellar/gdal/2.4.4/lib/libgdal.dylib")
+    set(GDAL_INCLUDE_DIR "/usr/local/include")
+    message(STATUS "\t GDAL library: ${GDAL_LIBRARY},\n \t Headers in: ${GDAL_INCLUDE_DIR}")
+    include_directories(${GDAL_INCLUDE_DIR})
+    message(STATUS "\t GDAL headers included")    
 
 # Xerces Search
 find_package(XercesC REQUIRED)
