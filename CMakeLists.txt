@@ -50,7 +50,28 @@ set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)  
 set(Boost_USE_STATIC_RUNTIME OFF) 
 
-find_package(Boost COMPONENTS chrono date_time locale log thread serialization wserialization filesystem system python REQUIRED)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+if(APPLE)
+    set( BOOST_PYTHONLIB python)
+elseif(UNIX)
+    set( BOOST_PYTHONLIB python3)
+endif()
+
+find_package(Boost COMPONENTS 
+    chrono 
+    date_time 
+    locale 
+    log 
+    thread 
+    serialization 
+    wserialization 
+    filesystem 
+    system 
+    ${BOOST_PYTHONLIB} 
+    REQUIRED)
 
     if(Boost_FOUND)
         message(STATUS "Library Boost is available")
@@ -180,6 +201,7 @@ function(print_files list_files)
     endforeach()
 endfunction()
 
+file(COPY symuvia/config/ DESTINATION ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
-add_subdirectory(SymuCore)
-add_subdirectory(SymuVia)
+add_subdirectory(symucore)
+add_subdirectory(symuvia)
